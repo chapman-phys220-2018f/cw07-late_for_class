@@ -58,8 +58,33 @@ def gen_gaussian_array(a, b, n=1000):
             x  : [a, ..., b] Array of n equally spaced float64 between a and b
             g  : [g(a), ..., g(b)] Array of Gaussian values matched to x
     """
-    pass
 
+    x = np.linspace(a, b, endpoint=True, num=n)
+
+    def gauss(x):
+        return (1/np.sqrt(2*np.pi))*np.exp(-x**2/2)
+
+    g = gauss(x)
+    return (x, g)
+
+def sinc_list(a, b, n=1000):
+    dx = (b-a)/(n-1)                         # spacing between points
+    x = [a + k*dx for k in range(n)]         # domain list
+
+    @np.vectorize
+    def sinc(x):
+        return(math.divide(math.sin(x), x, where=True))
+    s = [sinc(xk) for xk in x]
+    return (x,s)
+
+def sinc_array(a, b, n=1000):
+    x = np.linspace(a, b, endpoint=True, num=n)
+
+    def sinc(x):
+        return(np.divide(np.sin(x), x, where=x!=0))
+
+    s = sinc(x)
+    return (x, s)
 
 def main(a,b,n=1000):
     """main(a, b, n=1000)
