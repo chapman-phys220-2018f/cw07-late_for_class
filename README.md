@@ -2,7 +2,7 @@
 
 # PHYS220/MATH220/CPSC220 CW 7
 
-**Author(s):** **CHANGEME**
+**Author(s):** **Abby Wheaton and Frank Entriken**
 
 ## Specification
 
@@ -19,7 +19,7 @@ Pro-tip: using git to manage conflicts on Jupyter notebooks is a pain. I recomme
 
 Analyze in this section what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have. You can use the GitHub web interface to edit this file directly for now.
 
-**CHANGEME**
+**This assignment gave us a more detailed idea of how matplotlib and numpy work together. Creating the Jupyter Notebook felt like an accomplishment because of how much work we put into it.**
 
 ## Honor Pledge
 
@@ -30,4 +30,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-**YOURNAMES**
+**Abby Wheaton and Frank Entriken**
