@@ -73,7 +73,7 @@ def sinc_list(a, b, n=1000):
     x.remove(0)
 
     def sinc(x):
-        return ((math.sin(x)/x)
+        return ((math.sin(x)/x))
     s = [sinc(xk) for xk in x]
     return (x,s)
 
@@ -85,6 +85,26 @@ def sinc_array(a, b, n=1000):
         return(np.divide(np.sin(x), x, out = ones, where=x!=0))
 
     s = sinc(x)
+    return (x, s)
+
+def sinf_list(a, b, n=1000):
+    dx = (b-a)/(n-1)                         # spacing between points
+    x = [a + k*dx for k in range(n)]         # domain list
+    x.remove(0)
+
+    def sinf(x):
+        return ((math.sin(1/x)))
+    s = [sinf(xk) for xk in x]
+    return (x,s)
+
+def sinf_array(a, b, n=1000):
+    x = np.linspace(a, b, endpoint=True, num=n)
+
+    def sinf(x):
+        ones = np.ones_like(x)
+        return(np.sin(np.divide(1, x, out = ones, where=x!=0)))
+
+    s = sinf(x)
     return (x, s)
 
 def main(a,b,n=1000):
