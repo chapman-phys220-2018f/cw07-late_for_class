@@ -70,10 +70,10 @@ def gen_gaussian_array(a, b, n=1000):
 def sinc_list(a, b, n=1000):
     dx = (b-a)/(n-1)                         # spacing between points
     x = [a + k*dx for k in range(n)]         # domain list
+    x.remove(0)
 
-    @np.vectorize
     def sinc(x):
-        return(math.divide(math.sin(x), x, where=True))
+        return ((math.sin(x)/x)
     s = [sinc(xk) for xk in x]
     return (x,s)
 
@@ -81,7 +81,8 @@ def sinc_array(a, b, n=1000):
     x = np.linspace(a, b, endpoint=True, num=n)
 
     def sinc(x):
-        return(np.divide(np.sin(x), x, where=x!=0))
+        ones = np.ones_like(x)
+        return(np.divide(np.sin(x), x, out = ones, where=x!=0))
 
     s = sinc(x)
     return (x, s)
